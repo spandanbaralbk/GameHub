@@ -7,38 +7,67 @@ body{
 h1{
     color: #f1f4f8;
     text-align: center;
-    background-color: orange;
+    background-color: #ffae00;
     width: 200px;
     margin: 2px 530px;
+    box-shadow: 0 4px 15px rgba(255,174,0,0.25);
 }
 
-h1:hover{
-    background-color: red;
-}
 
 nav{
     float: right;
     margin: 2px 30px;
 }
 
-a{
+.a{
     text-decoration: none;
-    color: rgb(46, 112, 170);
+    color: #3498db;
     font-size: larger;
     font-family:Arial, Helvetica, sans-serif;
     padding: 3px 5px;
     margin: 2px 6px;
+    transition: 0.3s;
 }
 
-a:hover{
-    color: aliceblue;
+.a:hover{
+    color: #ffae00;
     background-color:blue ;
     text-decoration: underline;
+    transform: translateY(-2px);
 }
 strong{
     color: #f1f4f8;
 }
-img{
-    width: 430px;
+.b{
+    background-color: aqua;
+    margin: 2px 600px;
+    width: 90px;
+    height: 27px;
+    transition: transform 0.3s ease-in-out;
+}
+.b:hover{
+    background-color: skyblue;
+    transform: scale(1.07);
+}
+.af{
+    width: 420px;
     height: 300px;
+    padding: 2px 2px;
+    margin: 1px 7px;
+    transition: transform 0.4s ease-in-out;
+}
+.af:hover{
+    transform: scale(1.05);
+    border: 2px solid grey;
+}
+
+strong{
+    margin: 55px 20px 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    color: #eee;
+    letter-spacing: 1px;
+}
+strong span{
+    color: orange;
 }
