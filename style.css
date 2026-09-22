@@ -33,4 +33,12 @@ a{
 a:hover{
     color: aliceblue;
     background-color:blue ;
+    text-decoration: underline;
+}
+strong{
+    color: #f1f4f8;
+}
+img{
+    width: 430px;
+    height: 300px;
 }
