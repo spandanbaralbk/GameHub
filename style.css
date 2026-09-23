@@ -98,20 +98,40 @@ strong{
 }
 .hh{
     width: 900px;
-    border: 2px solid purple;
+    border: 2px solid black;
    margin: 2px 4px;
 }
-.vv{
-    width: 700px;
-    height: 500px;
-    color: white;
-    font-size: 25px;
+.la{
+    font-size: x-large;
+    color: #cccccc;
+    margin: 3px 10px;
     letter-spacing: 1px;
-     font-family: Arial, Helvetica, sans-serif;
-     margin: 4px 4px;
+}
+.vv{
+   width: 45%;
+   padding: 30px;
+   line-height: 1.7;
+   font-size: 18px;
+   color: #ddd;
+}
+.vv h2{
+    color:#00e5ff;
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+.vv span{
+    color: orange;
+    font-weight: bold;
+}
+.vv strong{
+    color: white;
+}
+.vv p{
+    margin-bottom: 20px;
+    color: #cccccc;
 }
 
 .abx{
-    color:chartreuse ;
+    color:darkcyan ;
     text-align: center;
 }
