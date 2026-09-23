@@ -32,8 +32,11 @@ nav{
     width: 400px;
     height: 250px;
     margin: 2px 14px;
+    transition: 0.4s;
 }
-.asd:ho
+.asd:hover{
+    transform: scale(1.07);
+}
 
 .a{
     text-decoration: none;
