@@ -130,6 +130,15 @@ strong{
     margin-bottom: 20px;
     color: #cccccc;
 }
+.butt{
+    margin: 9px 40px;
+    background-color: #00e5ff;
+    transition: 0.4s;
+}
+.butt:hover{
+    background-color: #3498db;
+    transform: scale(1.1);
+}
 
 .abx{
     color:darkcyan ;
