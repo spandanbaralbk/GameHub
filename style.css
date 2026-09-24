@@ -157,3 +157,35 @@ strong{
 .rr{
     display: flex;
 }
+.sbox{
+    position: relative;
+    overflow: hidden;
+}
+
+.sbox a{
+    display: block;
+    position: relative;
+}
+.sbox img{
+    display: block;
+    width: 100%;
+}
+
+.sbox button{
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translate(-50%,100px);
+    
+    z-index: 10;
+    padding: 10px 20px;
+    background: skyblue;
+    border: 2px solid slateblue;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.4s ease-in-out;
+}
+.sbox:hover button{
+    transform: translate(-50%,0);
+}
