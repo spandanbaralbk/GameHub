@@ -5,11 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form</title>
     <style>
+h2{
+    text-align: center;
+}
 
+.dmd{
+    border: 2px solid black;
+    margin: 2px 300px;
+}
+h3{
+    margin: 2px 30px;
+
+}
+#aname,#bname{
+    height: 18px;
+    margin: 2px 30px;
+}
+#cname,#dname{
+    height: 18px;
+    width: 200px;
+    margin: 2px 30px;
+}
+#ename{
+    height: 180px;
+    width: 600px;
+    margin: 0px 0px 10px 30px;
+}
+body{
+    background-image: url(https://i.pinimg.com/736x/33/d9/55/33d9557d7e34f7b48f976b7c50f572ba.jpg);
+}
+.dddd{
+    background-color: grey;
+    margin: 10px 50px;
+    width: 70px;
+}
+.dddd:hover{
+    background-color: darkslategrey;
+}
+label{
+    margin-left: 10px;
+}
     </style>
 </head>
 <body>
-    
-    
+    <div class="dmd">
+        <h2>Message Me</h2>
+        <form action="https://formspree.io/f/xrenzzao" method="post">
+
+          <label >Name: <br>
+        <input type="text" placeholder="Max" id="aname" required>
+        </label> <br>
+
+        <label>Your email: <br>
+        <input type="email" placeholder="abc@gmail.com" id="dname">
+        </label> <br>
+
+        <label>Your message: <br>
+         <textarea name="message" id="ename" placeholder="Hey, I'm curious to ...."></textarea>
+        </label> <br>
+ 
+        <button type="submit" class="dddd">Send</button>
+        </form>
+    </div>
 </body>
 </html>
