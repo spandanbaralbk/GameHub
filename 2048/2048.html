@@ -3,7 +3,62 @@
     <head>
         <meta charset = "utf-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>2048 — vanilla HTML5</tit<!DOCTYPE html> 
+<html lang = "en ">
+    <head>
+        <meta charset = "utf-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>2048 — vanilla HTML5</title>
+    <meta
+      name="description"
+      content="Classic 2048 puzzle in vanilla JavaScript. No frameworks, no build step."
+    />
+    <link rel="stylesheet" href="css/style.css" />
+
+    </head> 
+    <body>
+    <main class ="app">
+        <header class="header">
+            <h1>2048</h1>
+            <div class ="scores">
+                <div class = "score-box">
+                    <span class="label">Score</span>
+                    <span id = "score" class = "value" > 0</span>
+                </div>
+                <div class="score-box">
+                    <span class="label">Best</span>
+                    <span id="best" class="value">0</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="controls">
+            <label class="target-select">
+                Target
+                <select id="target">
+                    <option value="1024" > 1024 </option>
+                    <option value="2048">  2048 </option>
+                </select>
+            </label>
+            <button id="new-game" type="button">New Game!!</button>
+        </div>
+
+        <div id="message" class="message" hidden ></div>
+        <div id="board" class="board" tabindex="0"></div>
+
+        <p class="hint">
+            Use the arrow keys (or swipe on a touch device) to slide tiles
+            Equal tiles merge into their sum 
+        </p>
+
+        <footer class="footer">
+            <a href="https://github.com/spandanbaralbk/GameHub/tree/main/2048"> Source on GitHub </a>
+        </footer>
+    </main>        
+
+    <script type="module" src="js/main.js"></script>
+    </body>
+</html>e>
     <meta
       name="description"
       content="Classic 2048 puzzle in vanilla JavaScript. No frameworks, no build step."
