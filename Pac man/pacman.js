@@ -23,13 +23,29 @@ window.onload = function(){
     board.height = boardHeight;
     board.width = boardWidth;
     context = board.getContext("2d"); //used for drawing on the board
+    loadImages();
 }
 
 
 function loadImages(){
     wallImage = new Image();
-    wallImage.src = "./wall.png";
+    wallImage.src = "./Images/Wall.png";
 
     blueGhostImage = new Image();
     blueGhostImage.src = "./Images/blueghost.webp";
+    pinkGhostImage = new Image();
+    pinkGhostImage.src = "./Images/pink ghost.jpg";
+    orangeGhostImage = new Image();
+    orangeGhostImage.src = "./Images/Orange_Ghost.png";
+    redGhostImage = new Image();
+    redGhostImage.src = "./Images/Red_Ghost.png";
+
+    pacmanUpImage = new Image();
+    pacmanUpImage.src = "./Images/pacup.jpg";
+    pacmanDownImage = new Image();
+    pacmanDownImage.src = "./Images/pacleft.jpg";
+    pacmanRightImage = new Image();
+    pacmanRightImage.src = "./Images/pacright.jpg";
+    pacmanLeftImage = new Image();
+    pacmanLeftImage.src = "./Images/pacleft.jpg";
 }
