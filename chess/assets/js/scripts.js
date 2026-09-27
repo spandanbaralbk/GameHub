@@ -275,3 +275,139 @@ const SQUARES = [
         "cordinates":[FIELDPOSITION + (FIELDSIZE * 7),FIELDPOSITION + (FIELDSIZE * 7)]
     }              
 ];
+
+var pieces = {
+    "black":[
+            {
+                "name":"pawn1",
+                "cordinates":[SQUARES.filter(square=> square.name == "A2")[0].cordinates[0],SQUARES.filter(square=> square.name == "A2")[0].cordinates[1]] 
+            },
+            {
+                "name":"pawn2",
+                "cordinates":[SQUARES.filter(square=> square.name == "B2")[0].cordinates[0],SQUARES.filter(square=> square.name == "B2")[0].cordinates[1]] 
+            },
+            {
+                "name":"pawn3",
+                "cordinates":[SQUARES.filter(square=> square.name == "C2")[0].cordinates[0],SQUARES.filter(square=> square.name == "C2")[0].cordinates[1]] 
+            },
+            {
+                "name":"pawn4",
+                "cordinates":[SQUARES.filter(square=> square.name == "D2")[0].cordinates[0],SQUARES.filter(square=> square.name == "D2")[0].cordinates[1]] 
+            },
+            {
+                "name":"pawn5",
+                "cordinates":[SQUARES.filter(square=> square.name == "E2")[0].cordinates[0],SQUARES.filter(square=> square.name == "E2")[0].cordinates[1]] 
+            },
+            {
+                "name":"pawn6",
+                "cordinates":[SQUARES.filter(square=> square.name == "F2")[0].cordinates[0],SQUARES.filter(square=> square.name == "F2")[0].cordinates[1]] 
+            },
+            {
+                "name":"pawn7",
+                "cordinates":[SQUARES.filter(square=> square.name == "G2")[0].cordinates[0],SQUARES.filter(square=> square.name == "G2")[0].cordinates[1]] 
+            },
+            {
+                "name":"pawn8",
+                "cordinates":[SQUARES.filter(square=> square.name == "H2")[0].cordinates[0],SQUARES.filter(square=> square.name == "H2")[0].cordinates[1]] 
+            },
+            {
+                "name":"rock1",
+                "cordinates":[SQUARES.filter(square=> square.name == "A1")[0].cordinates[0],SQUARES.filter(square=> square.name == "A1")[0].cordinates[1]] 
+            },
+            {
+                "name":"rock2",
+                "cordinates":[SQUARES.filter(square=> square.name == "H1")[0].cordinates[0],SQUARES.filter(square=> square.name == "H1")[0].cordinates[1]] 
+            },
+            {
+                "name":"knight1",
+                "cordinates":[SQUARES.filter(square=> square.name == "B1")[0].cordinates[0],SQUARES.filter(square=> square.name == "B1")[0].cordinates[1]] 
+            },
+            {
+                "name":"knight2",
+                "cordinates":[SQUARES.filter(square=> square.name == "G1")[0].cordinates[0],SQUARES.filter(square=> square.name == "G1")[0].cordinates[1]] 
+            },
+            {
+                "name":"bishop1",
+                "cordinates":[SQUARES.filter(square=> square.name == "C1")[0].cordinates[0],SQUARES.filter(square=> square.name == "C1")[0].cordinates[1]] 
+            },
+            {
+                "name":"bishop2",
+                "cordinates":[SQUARES.filter(square=> square.name == "F1")[0].cordinates[0],SQUARES.filter(square=> square.name == "F1")[0].cordinates[1]] 
+            },
+            {
+                "name":"queen",
+                "cordinates":[SQUARES.filter(square=> square.name == "D1")[0].cordinates[0],SQUARES.filter(square=> square.name == "D1")[0].cordinates[1]] 
+            },
+            {
+                "name":"king",
+                "cordinates":[SQUARES.filter(square=> square.name == "E1")[0].cordinates[0],SQUARES.filter(square=> square.name == "E1")[0].cordinates[1]] 
+            }
+
+    ],
+    "white":[
+        {
+            "name":"pawn1",
+            "cordinates":[SQUARES.filter(square=> square.name == "A7")[0].cordinates[0],SQUARES.filter(square=> square.name == "A7")[0].cordinates[1]] 
+        },
+        {
+            "name":"pawn2",
+            "cordinates":[SQUARES.filter(square=> square.name == "B7")[0].cordinates[0],SQUARES.filter(square=> square.name == "B7")[0].cordinates[1]] 
+        },
+        {
+            "name":"pawn3",
+            "cordinates":[SQUARES.filter(square=> square.name == "C7")[0].cordinates[0],SQUARES.filter(square=> square.name == "C7")[0].cordinates[1]] 
+        },
+        {
+            "name":"pawn4",
+            "cordinates":[SQUARES.filter(square=> square.name == "D7")[0].cordinates[0],SQUARES.filter(square=> square.name == "D7")[0].cordinates[1]] 
+        },
+        {
+            "name":"pawn5",
+            "cordinates":[SQUARES.filter(square=> square.name == "E7")[0].cordinates[0],SQUARES.filter(square=> square.name == "E7")[0].cordinates[1]] 
+        },
+        {
+            "name":"pawn6",
+            "cordinates":[SQUARES.filter(square=> square.name == "F7")[0].cordinates[0],SQUARES.filter(square=> square.name == "F7")[0].cordinates[1]] 
+        },
+        {
+            "name":"pawn7",
+            "cordinates":[SQUARES.filter(square=> square.name == "G7")[0].cordinates[0],SQUARES.filter(square=> square.name == "G7")[0].cordinates[1]] 
+        },
+        {
+            "name":"pawn8",
+            "cordinates":[SQUARES.filter(square=> square.name == "H7")[0].cordinates[0],SQUARES.filter(square=> square.name == "H7")[0].cordinates[1]] 
+        },
+        {
+            "name":"rock1",
+            "cordinates":[SQUARES.filter(square=> square.name == "A8")[0].cordinates[0],SQUARES.filter(square=> square.name == "A8")[0].cordinates[1]] 
+        },
+        {
+            "name":"rock2",
+            "cordinates":[SQUARES.filter(square=> square.name == "H8")[0].cordinates[0],SQUARES.filter(square=> square.name == "H8")[0].cordinates[1]] 
+        },
+        {
+            "name":"knight1",
+            "cordinates":[SQUARES.filter(square=> square.name == "B8")[0].cordinates[0],SQUARES.filter(square=> square.name == "B8")[0].cordinates[1]] 
+        },
+        {
+            "name":"knight2",
+            "cordinates":[SQUARES.filter(square=> square.name == "G8")[0].cordinates[0],SQUARES.filter(square=> square.name == "G8")[0].cordinates[1]] 
+        },
+        {
+            "name":"bishop1",
+            "cordinates":[SQUARES.filter(square=> square.name == "C8")[0].cordinates[0],SQUARES.filter(square=> square.name == "C8")[0].cordinates[1]] 
+        },
+        {
+            "name":"bishop2",
+            "cordinates":[SQUARES.filter(square=> square.name == "F8")[0].cordinates[0],SQUARES.filter(square=> square.name == "F8")[0].cordinates[1]] 
+        },
+        {
+            "name":"queen",
+            "cordinates":[SQUARES.filter(square=> square.name == "D8")[0].cordinates[0],SQUARES.filter(square=> square.name == "D8")[0].cordinates[1]] 
+        },
+        {
+            "name":"king",
+            "cordinates":[SQUARES.filter(square=> square.name == "E8")[0].cordinates[0],SQUARES.filter(square=> square.name == "E8")[0].cordinates[1]] 
+        }
+    ]
+}; 
