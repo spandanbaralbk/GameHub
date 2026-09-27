@@ -104,7 +104,7 @@ strong{
     color: orange;
 }
 .hh{
-    width: 900px;
+    width: 800px;
     border: 2px solid black;
    margin: 2px 4px;
 }
@@ -113,6 +113,7 @@ strong{
     color: #cccccc;
     margin: 3px 10px;
     letter-spacing: 1px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 .vv{
    width: 45%;
@@ -195,4 +196,12 @@ strong{
 }
 .sbox:hover button{
     transform: translate(-50%,0);
+}
+.pop{
+    font-size: larger;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+.spe{
+    position:fixed;
+    
 }
