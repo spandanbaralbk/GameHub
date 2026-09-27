@@ -11,5 +11,27 @@
 </head>
 <body>
     <canvas id="chessBoard"></canvas>
+
+        <div class="popup" id="popup">
+            <div class="popup-box">
+                <br>
+                <div class="cc">
+                <h2 class="hh">🎈WELCOME TO CHESS</h2>
+                <button onclick="closePopup()">❌</button>
+                </div> <br> <br>
+                <p class="pp">⚠️This page is not complete yet so it is not playable. <br>
+                  You can still proceed if you want to.
+                </p>
+                <br> <br>
+                <button class="bb" onclick="closePopup()">Continue</button>
+            </div>
+        </div>
+ <script>
+    function closePopup(){
+        document.getElementById("popup").style.display = "none";
+    }
+ </script>
+
+
 </body>
 </html>
