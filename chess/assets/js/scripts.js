@@ -411,3 +411,194 @@ var pieces = {
         }
     ]
 }; 
+
+var moves = [];
+
+let whitesTurn = true;
+let selectedPiece = null;
+let validMoves = null;
+let history = [];
+
+updateGame(0);
+
+
+// MAIN FUNCTION THAT UPDATE THE BOARD
+function updateGame(piecesAngle){
+    drawFrame();
+    drawBoard();
+    drawHighlights();
+    drawPieces(piecesAngle);
+}
+
+// DRAW FUNCTIONS
+function drawFrame(){
+    CTX.fillStyle = "#3a1c07";
+    CTX.fillRect(0,0,BOARDSIZE,BOARDSIZE);
+    CTX.fillStyle = "#ffffd9";
+    CTX.font = FONTSIZE+"% Arial";
+    CTX.scale(1,-1);
+    CTX.translate(0,-(FIELDSIZE - (FRAME / 2)));
+    CTX.fillText("A",FIELDPOSITION + FIELDSIZE - FIELDPOSITION,FIELDPOSITION - (FIELDPOSITION / 4));
+    CTX.fillText("B",FIELDPOSITION + (FIELDSIZE * 2) - FIELDPOSITION,FIELDPOSITION - (FIELDPOSITION / 4));
+    CTX.fillText("C",FIELDPOSITION + (FIELDSIZE * 3) - FIELDPOSITION,FIELDPOSITION - (FIELDPOSITION / 4));
+    CTX.fillText("D",FIELDPOSITION + (FIELDSIZE * 4) - FIELDPOSITION,FIELDPOSITION - (FIELDPOSITION / 4));
+    CTX.fillText("E",FIELDPOSITION + (FIELDSIZE * 5) - FIELDPOSITION,FIELDPOSITION - (FIELDPOSITION / 4));
+    CTX.fillText("F",FIELDPOSITION + (FIELDSIZE * 6) - FIELDPOSITION,FIELDPOSITION - (FIELDPOSITION / 4));
+    CTX.fillText("G",FIELDPOSITION + (FIELDSIZE * 7) - FIELDPOSITION,FIELDPOSITION - (FIELDPOSITION / 4));
+    CTX.fillText("H",FIELDPOSITION + (FIELDSIZE * 8) - FIELDPOSITION,FIELDPOSITION - (FIELDPOSITION / 4));
+    CTX.setTransform(1,0,0,1,0,0);
+    CTX.fillText("A",FIELDPOSITION + FIELDSIZE - FIELDPOSITION,BOARDSIZE - (FIELDPOSITION / 4));
+    CTX.fillText("B",FIELDPOSITION + (FIELDSIZE * 2) - FIELDPOSITION,BOARDSIZE - (FIELDPOSITION / 4));
+    CTX.fillText("C",FIELDPOSITION + (FIELDSIZE * 3) - FIELDPOSITION,BOARDSIZE - (FIELDPOSITION / 4));
+    CTX.fillText("D",FIELDPOSITION + (FIELDSIZE * 4) - FIELDPOSITION,BOARDSIZE - (FIELDPOSITION / 4));
+    CTX.fillText("E",FIELDPOSITION + (FIELDSIZE * 5) - FIELDPOSITION,BOARDSIZE - (FIELDPOSITION / 4));
+    CTX.fillText("F",FIELDPOSITION + (FIELDSIZE * 6) - FIELDPOSITION,BOARDSIZE - (FIELDPOSITION / 4));
+    CTX.fillText("G",FIELDPOSITION + (FIELDSIZE * 7) - FIELDPOSITION,BOARDSIZE - (FIELDPOSITION / 4));
+    CTX.fillText("H",FIELDPOSITION + (FIELDSIZE * 8) - FIELDPOSITION,BOARDSIZE - (FIELDPOSITION / 4));
+    CTX.fillText("1",FIELDPOSITION - (FIELDPOSITION / 2),(FIELDPOSITION + FIELDSIZE) - (FIELDSIZE / 3));
+    CTX.fillText("2",FIELDPOSITION - (FIELDPOSITION / 2),FIELDPOSITION + (FIELDSIZE * 2) - (FIELDSIZE / 3));
+    CTX.fillText("3",FIELDPOSITION - (FIELDPOSITION / 2),FIELDPOSITION + (FIELDSIZE * 3) - (FIELDSIZE / 3));
+    CTX.fillText("4",FIELDPOSITION - (FIELDPOSITION / 2),FIELDPOSITION + (FIELDSIZE * 4) - (FIELDSIZE / 3));
+    CTX.fillText("5",FIELDPOSITION - (FIELDPOSITION / 2),FIELDPOSITION + (FIELDSIZE * 5) - (FIELDSIZE / 3));
+    CTX.fillText("6",FIELDPOSITION - (FIELDPOSITION / 2),FIELDPOSITION + (FIELDSIZE * 6) - (FIELDSIZE / 3));
+    CTX.fillText("7",FIELDPOSITION - (FIELDPOSITION / 2),FIELDPOSITION + (FIELDSIZE * 7) - (FIELDSIZE / 3));
+    CTX.fillText("8",FIELDPOSITION - (FIELDPOSITION / 2),FIELDPOSITION + (FIELDSIZE * 8) - (FIELDSIZE / 3));
+    CTX.scale(1,-1);
+    CTX.translate(0,-BOARDSIZE);
+    CTX.fillText("8",BOARDSIZE - (FIELDPOSITION / 3) - (FIELDPOSITION / 2) ,(FIELDPOSITION + FIELDSIZE) - (FIELDSIZE / 3));
+    CTX.fillText("7",BOARDSIZE - (FIELDPOSITION / 3) - (FIELDPOSITION / 2) ,FIELDPOSITION + (FIELDSIZE * 2) - (FIELDSIZE / 3));
+    CTX.fillText("6",BOARDSIZE - (FIELDPOSITION / 3) - (FIELDPOSITION / 2) ,FIELDPOSITION + (FIELDSIZE * 3) - (FIELDSIZE / 3));
+    CTX.fillText("5",BOARDSIZE - (FIELDPOSITION / 3) - (FIELDPOSITION / 2) ,FIELDPOSITION + (FIELDSIZE * 4) - (FIELDSIZE / 3));
+    CTX.fillText("4",BOARDSIZE - (FIELDPOSITION / 3) - (FIELDPOSITION / 2) ,FIELDPOSITION + (FIELDSIZE * 5) - (FIELDSIZE / 3));
+    CTX.fillText("3",BOARDSIZE - (FIELDPOSITION / 3) - (FIELDPOSITION / 2) ,FIELDPOSITION + (FIELDSIZE * 6) - (FIELDSIZE / 3));
+    CTX.fillText("2",BOARDSIZE - (FIELDPOSITION / 3) - (FIELDPOSITION / 2) ,FIELDPOSITION + (FIELDSIZE * 7) - (FIELDSIZE / 3));
+    CTX.fillText("1",BOARDSIZE - (FIELDPOSITION / 3) - (FIELDPOSITION / 2) ,FIELDPOSITION + (FIELDSIZE * 8) - (FIELDSIZE / 3));
+    CTX.setTransform(1,0,0,1,0,0);
+}
+
+function drawBoard(){
+    let color = "#a7a791";
+
+    SQUARES.forEach((square,index) =>{
+        CTX.fillStyle = color;
+
+        CTX.fillRect(square.cordinates[0],square.cordinates[1],FIELDSIZE,FIELDSIZE);
+
+        if(!((index + 1) % 8 == 0)){
+            ((color == "#a7a791") ? color = "#682b00"  : color = "#a7a791");
+        }        
+    });
+}
+
+function drawHighlights(){
+    if(selectedPiece != null){
+        if(whitesTurn){
+            pieces.white.forEach(piece=>{
+                if(selectedPiece.color == "white" && selectedPiece.name == piece.name){
+                    CTX.fillStyle = "#c19348";
+                    CTX.fillRect(piece.cordinates[0],piece.cordinates[1],FIELDSIZE,FIELDSIZE);
+
+                    CTX.fillStyle = "#ff0000";
+                    checkPossibleMoves("white",piece.name,[piece.cordinates[0],piece.cordinates[1]]).forEach(cordinates=> {
+                        CTX.fillRect(cordinates[0],cordinates[1],FIELDSIZE,FIELDSIZE);
+                    });
+                }
+            }); 
+        }else{
+            pieces.black.forEach(piece=>{
+                if(selectedPiece.color == "black" && selectedPiece.name == piece.name){
+                    CTX.fillStyle = "#c19348";
+                    CTX.fillRect(piece.cordinates[0],piece.cordinates[1],FIELDSIZE,FIELDSIZE);
+                
+                    CTX.fillStyle = "#ff0000";
+                    checkPossibleMoves("black",piece.name,[piece.cordinates[0],piece.cordinates[1]]).forEach(cordinates=> {
+                        CTX.fillRect(cordinates[0],cordinates[1],FIELDSIZE,FIELDSIZE);
+                    });
+                }
+            });
+        } 
+    }
+}
+
+function drawPieces(piecesAngle){    
+    // DRAW BLACK PIECES
+    pieces.black.forEach(piece=>{
+        let img = new Image();
+
+        img.onload = ()=>{
+            CTX.drawImage(img,piece.cordinates[0],piece.cordinates[1],FIELDSIZE,FIELDSIZE);
+        }
+
+        if(piecesAngle == 180){
+            if(piece.name.indexOf("pawn") != -1){
+                img.src = "assets/images/black_rotate_pawn.png";
+            }else if(piece.name.indexOf("rock") != -1){
+                img.src = "assets/images/black_rotate_rock.png";
+            }else if(piece.name.indexOf("knight") != -1){
+                img.src = "assets/images/black_rotate_knight.png";
+            }else if(piece.name.indexOf("bishop") != -1){
+                img.src = "assets/images/black_rotate_bishop.png";
+            }else if(piece.name == "queen"){
+                img.src = "assets/images/black_rotate_queen.png";
+            }else if(piece.name == "king"){
+                img.src = "assets/images/black_rotate_king.png";
+            }
+        }else{
+            if(piece.name.indexOf("pawn") != -1){
+                img.src = "assets/images/black_pawn.png";
+            }else if(piece.name.indexOf("rock") != -1){
+                img.src = "assets/images/black_rock.png";
+            }else if(piece.name.indexOf("knight") != -1){
+                img.src = "assets/images/black_knight.png";
+            }else if(piece.name.indexOf("bishop") != -1){
+                img.src = "assets/images/black_bishop.png";
+            }else if(piece.name == "queen"){
+                img.src = "assets/images/black_queen.png";
+            }else if(piece.name == "king"){
+                img.src = "assets/images/black_king.png";
+            }
+        }
+    });
+
+    // DRAW WHITE PIECES
+    pieces.white.forEach(piece=>{
+        let img = new Image();
+
+        img.onload = ()=>{
+            CTX.drawImage(img,piece.cordinates[0],piece.cordinates[1],FIELDSIZE,FIELDSIZE);
+        }
+
+        if(piecesAngle == 180){
+            if(piece.name.indexOf("pawn") != -1){
+                img.src = "assets/images/white_rotate_pawn.png";
+            }else if(piece.name.indexOf("rock") != -1){
+                img.src = "assets/images/white_rotate_rock.png";
+            }else if(piece.name.indexOf("knight") != -1){
+                img.src = "assets/images/white_rotate_knight.png";
+            }else if(piece.name.indexOf("bishop") != -1){
+                img.src = "assets/images/white_rotate_bishop.png";
+            }else if(piece.name == "queen"){
+                img.src = "assets/images/white_rotate_queen.png";
+            }else if(piece.name == "king"){
+                img.src = "assets/images/white_rotate_king.png";
+            }
+        }else{
+            if(piece.name.indexOf("pawn") != -1){
+                img.src = "assets/images/white_pawn.png";
+            }else if(piece.name.indexOf("rock") != -1){
+                img.src = "assets/images/white_rock.png";
+            }else if(piece.name.indexOf("knight") != -1){
+                img.src = "assets/images/white_knight.png";
+            }else if(piece.name.indexOf("bishop") != -1){
+                img.src = "assets/images/white_bishop.png";
+            }else if(piece.name == "queen"){
+                img.src = "assets/images/white_queen.png";
+            }else if(piece.name == "king"){
+                img.src = "assets/images/white_king.png";
+            }
+        }
+    });    
+}
+
+
+
