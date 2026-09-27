@@ -8,6 +8,29 @@
     <script src="pacman.js"></script>
 </head>
 <body>
+     <div id="popup" class="popup">
+        <div class="popup-box">
+            <div class="qwq">
+            <h2 class="gh">🎈Welcome to Pac Man</h2> 
+            <button onclick="closePopup()">❌</button>
+               </div> <br> 
+               <p class="ppp">⚠️This game is not complete yet so it is not playable. <br> You can still proceed if you want to.</p>
+            <br> <br>
+            <button class="pxp" onclick="closePopup()">Continue</button>
+        </div>
+     </div>
+
+
+         <script>
+            function closePopup(){
+                document.getElementById("popup").style.display = "none";
+            }
+         </script>
+
+
+
+
+
     <canvas id="board"></canvas>
 </body>
 </html>
