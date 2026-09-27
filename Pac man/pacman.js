@@ -28,5 +28,8 @@ window.onload = function(){
 
 function loadImages(){
     wallImage = new Image();
-    wallImage.src = "";
+    wallImage.src = "./wall.png";
+
+    blueGhostImage = new Image();
+    blueGhostImage.src = "./Images/blueghost.webp";
 }
