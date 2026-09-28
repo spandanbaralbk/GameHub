@@ -12,6 +12,23 @@
         <button id="new">New Game</button>
     </div>
 
+    <div class="popup" id="popup">
+        <div class="popup-box">
+            <div class="cc">
+                <h2 class="hh">🎈WELCOME TO TIC TAC TOE</h2>
+                <button  onclick="closePopup()">❌</button>
+            </div> <br> <br>
+            <p class="pp">This game is made by using simple html, css and js. I hope you ennjoy it.</p>
+            <br><br>
+            <button class="bb" onclick="closePopup()">Continue</button>
+        </div>
+    </div>
+           
+     <script>
+        function closePopup(){
+            document.getElementById("popup").style.display = "none";
+        }
+     </script>
      <main>
         <br>
     <H1>Tic Tac Toe</H1>
