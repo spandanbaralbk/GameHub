@@ -12,6 +12,30 @@
 
     </head> 
     <body>
+         
+        <div class="popup">
+            <div class="popup-box">
+                <div class="cc">
+                    <h2>🎈WELCOME TO 2048🎈</h2>
+                    <button onclick="closePopup()">❌</button>
+                </div> <br>
+                <p class="pp">
+                    This game is made from simple html , css and js . I hope you enjoy it.
+                </p>
+                <br> <br>
+                <button onclick="closePopup()">Continue</button>
+            </div>
+        </div>
+
+            <script>
+                function closePopup(){
+                    document.getElementById("popup").style.display = "none";
+                }
+            </script>
+
+
+
+
     <main class ="app">
         <header class="header">
             <h1>2048</h1>
